@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conclusion – Black Beauty (SHS)</title>
+
+  <style>
+    :root{
+      --bg1:#2b1b12;
+      --bg2:#4a2d1c;
+      --ink:#2a1d12;
+      --accent:#7a4a2a;
+      --border: rgba(122,74,42,.35);
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      padding:28px;
+      font-family: Georgia, "Times New Roman", serif;
+      color:var(--ink);
+
+      /* Victorian-inspired background */
+      background:
+        radial-gradient(1200px 700px at 20% 20%, rgba(255,255,255,0.18), transparent 55%),
+        radial-gradient(900px 600px at 85% 35%, rgba(255,255,255,0.12), transparent 55%),
+        repeating-linear-gradient(45deg,
+          rgba(122,74,42,0.12) 0px,
+          rgba(122,74,42,0.12) 10px,
+          rgba(168,111,72,0.08) 10px,
+          rgba(168,111,72,0.08) 20px),
+        linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 50%, var(--bg1) 100%);
+      background-attachment: fixed;
+    }
+
+    .wrap{
+      max-width: 1050px;
+      margin:auto;
+      background: rgba(255,244,223,0.96);
+      border-radius:18px;
+      padding:20px;
+      box-shadow:var(--shadow);
+      border:2px solid var(--border);
+      position:relative;
+    }
+
+    .wrap::before{
+      content:"";
+      position:absolute;
+      inset:10px;
+      border-radius:14px;
+      border:2px dashed var(--border);
+      pointer-events:none;
+    }
+
+    header{
+      text-align:center;
+      margin-bottom:18px;
+      position:relative;
+      z-index:1;
+    }
+
+    h1{
+      margin:0;
+      font-size:28px;
+      letter-spacing:.3px;
+    }
+
+    .subtitle{
+      font-size:14px;
+      opacity:.82;
+      margin-top:6px;
+    }
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin: 10px 0 0;
+      position:relative;
+      z-index:1;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--ink);
+      background: rgba(255,255,255,0.65);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    nav a:hover{
+      background: rgba(255,255,255,0.9);
+    }
+
+    /* Card base */
+    .card{
+      background: rgba(255,255,255,0.65);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:16px;
+      margin-top:18px;
+      position:relative;
+      z-index:1;
+    }
+
+    /* Conclusion styling */
+    .conclusion-header{
+      text-align:center;
+      margin-bottom:12px;
+    }
+
+    .conclusion-header h2{
+      margin:0;
+      color:var(--accent);
+      font-size: 20px;
+    }
+
+    .conclusion-sub{
+      font-size:14px;
+      opacity:.78;
+      margin-top:4px;
+    }
+
+    .conclusion-content p{
+      line-height:1.65;
+      margin-bottom:12px;
+      color: rgba(42,29,18,.86);
+    }
+
+    .conclusion-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:12px;
+    }
+
+    @media(max-width:800px){
+      .conclusion-grid{ grid-template-columns:1fr; }
+    }
+
+    .conclusion-box{
+      background: rgba(255,255,255,0.60);
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:14px;
+    }
+
+    .conclusion-box h3{
+      margin-top:0;
+      color:var(--accent);
+      font-size: 16px;
+    }
+
+    .conclusion-box ul{
+      padding-left:18px;
+      margin: 8px 0 0;
+    }
+
+    .conclusion-box li{
+      margin-bottom:10px;
+      line-height:1.45;
+      color: rgba(42,29,18,.82);
+    }
+
+    .conclusion-box a{
+      color:var(--accent);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(122,74,42,.6);
+      word-break: break-word;
+    }
+
+    .conclusion-box a:hover{
+      border-bottom-style:solid;
+    }
+
+    .video-note{
+      font-size:13px;
+      opacity:.78;
+      margin-top:8px;
+      line-height:1.45;
+    }
+
+    .conclusion-buttons{
+      margin-top:16px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn-outline,
+    .btn-solid{
+      padding:10px 16px;
+      border-radius:999px;
+      font-weight:bold;
+      text-decoration:none;
+      color:var(--ink);
+      border:1px solid rgba(122,74,42,.6);
+      font-size: 13px;
+      display:inline-block;
+    }
+
+    .btn-outline{
+      background: rgba(255,255,255,.75);
+    }
+
+    .btn-solid{
+      background:#caa26a;
+    }
+
+    .btn-outline:hover,
+    .btn-solid:hover{
+      opacity:.92;
+    }
+
+    /* Embedded Form Styling */
+    .form-wrap{
+      margin-top:12px;
+      background: rgba(255,255,255,0.60);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    .form-note{
+      font-size: 13px;
+      opacity: .8;
+      line-height: 1.45;
+      margin: 0 0 10px;
+      color: rgba(42,29,18,.86);
+    }
+
+    .gform-embed{
+      width: 100%;
+      height: 820px; /* adjust if you want taller/shorter */
+      border: 0;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.7);
+    }
+
+    footer{
+      text-align:center;
+      font-size:12px;
+      margin-top:16px;
+      opacity:.78;
+      position:relative;
+      z-index:1;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap" id="top">
+
+    <header>
+      <h1>Black Beauty – Final Conclusion</h1>
+      <p class="subtitle">
+        Conclusion with sources on horse welfare
+      </p>
+
+      <!-- Internal links -->
+      <nav aria-label="Page navigation">
+        <a href="#conclusion">Conclusion</a>
+        <a href="#feedback">Q&amp;A / Feedback</a>
+      </nav>
+    </header>
+
+    <!-- CONCLUSION -->
+    <section id="conclusion" class="card">
+      <div class="conclusion-header">
+        <h2>Effectiveness of the Book</h2>
+        <p class="conclusion-sub">Evaluation, recommendation, and supporting sources</p>
+      </div>
+
+      <div class="conclusion-content">
+        <p>
+          <strong>Black Beauty</strong> is an effective novel that promotes awareness of animal welfare
+          through a clear and emotionally engaging narrative. Because the story is told from the horse’s
+          point of view, readers understand how kindness, neglect, and cruelty affect an animal’s life.
+          This approach makes the message personal and easier to remember.
+        </p>
+
+        <p>
+          The novel is recommended for Senior High School students because it is readable, organized,
+          and socially relevant. It encourages empathy and ethical thinking by showing that animals
+          depend on human choices. The themes are still applicable today, especially when discussing
+          responsible care and welfare standards for horses.
+        </p>
+
+        <div class="conclusion-grid">
+          <!-- ARTICLES -->
+          <div class="conclusion-box">
+            <h3>Supporting Articles</h3>
+            <ul>
+              <li>
+                <a href="https://www.tandfonline.com/doi/full/10.1080/1828051X.2023.2271038#summary-abstract"
+                   target="_blank" rel="noopener">
+                  Taylor &amp; Francis Online — (2023) Animal welfare study (summary/abstract)
+                </a>
+              </li>
+              <li>
+                <a href="https://www.companionanimals.nz/articles/equine-welfare-understanding-horse-emotions"
+                   target="_blank" rel="noopener">
+                  Companion Animals NZ — Equine welfare: understanding horse emotions
+                </a>
+              </li>
+              <li>
+                <a href="https://www.cambridge.org/core/journals/animal-welfare/article/but-my-horse-is-well-cared-for-a-qualitative-exploration-of-cognitive-dissonance-and-enculturation-in-equestrian-attitudes-toward-performance-horses-and-their-welfare/6FF0114E2170F90E2AA50D671F56B8FE"
+                   target="_blank" rel="noopener">
+                  Cambridge Core (Animal Welfare Journal) — Equestrian attitudes and welfare
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- VIDEO -->
+          <div class="conclusion-box">
+            <h3>Related Video</h3>
+            <p style="margin:0;">
+              <a href="https://www.youtube.com/watch?v=isIutbH7QcA"
+                 target="_blank" rel="noopener">
+                ▶ Horse Welfare Video (Educational)
+              </a>
+            </p>
+            <p class="video-note">
+              This video supports the novel’s message by discussing horse welfare and the importance
+              of responsible and ethical treatment.
+            </p>
+          </div>
+        </div>
+
+        <div class="conclusion-buttons">
+          <a href="#top" class="btn-outline">Back to Top</a>
+          <a href="#feedback" class="btn-solid">Have a Question?</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEEDBACK / Q&A -->
+    <section id="feedback" class="card">
+      <h2 style="margin-top:0; color:var(--accent);">Feedback / Q&amp;A</h2>
+
+      <p style="line-height:1.6; color: rgba(42,29,18,.86); margin-bottom:12px;">
+        Use the form below to submit your questions, reflections, or feedback about the novel’s message,
+        writing style, and relevance to modern horse welfare.
+      </p>
+
+      <!-- EMBEDDED GOOGLE FORM -->
+      <div class="form-wrap">
+        <p class="form-note">
+          If the form does not load, you may need to sign in with your school Google account.
+        </p>
+
+        <!-- Google Forms embed uses /viewform?embedded=true -->
+        <iframe
+          class="gform-embed"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSeD5DbyHWmiJZLnCo6C6m_J7QpCFbySSDatI_A51M0Cq7B3IQ/viewform?embedded=true"
+          loading="lazy"
+          title="Black Beauty Q&A Form">
+        </iframe>
+      </div>
+
+      <div class="conclusion-buttons" style="margin-top:12px;">
+        <a href="#conclusion" class="btn-outline">Back to Conclusion</a>
+        <a href="#top" class="btn-outline">Back to Top</a>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
